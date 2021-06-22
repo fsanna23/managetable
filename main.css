@@ -1,0 +1,384 @@
+/*
+
+originally extracted from https://gist.github.com/magican/5574556
+
+Most colors defined here are overridden by javascript which adds css based on
+values in the server config file notebook.json, which can be edited directly,
+or colors can be selected in the nbextensions_configurator
+*/
+
+/*background color for links when you mouse over it */
+#toc-wrapper li > span:hover {
+  background-color: #daa520;
+}
+
+#toc a {
+  color: #333333; /* default - alterable via nbextension-configurator */
+  text-decoration: none;
+}
+#navigate_menu li > span:hover {
+  background-color: #f1f1f1;
+}
+
+/* Move menus and tooolbar to the left, following @Kevin-McIsaac suggestion
+  This is now done in javascript, if the relevant option is selected
+  div#menubar-container, div#header-container {
+  width: auto;
+  padding-left: 20px;
+  }*/
+
+#navigate_menu {
+  list-style-type: none;
+  max-width: 800px;
+  min-width: 100px;
+  width: 250px;
+  overflow: auto;
+}
+
+#navigate_menu a {
+  list-style-type: none;
+  color: #333333; /* default - alterable via nbextension-configurator */
+  text-decoration: none;
+}
+
+#navigate_menu li {
+  padding-left: 0px;
+  clear: both;
+  list-style-type: none;
+}
+
+#navigate_menu > .toc-item,
+#navigate_menu ul {
+  padding-left: 0px;
+}
+
+.manager {
+  padding: 0px;
+  overflow-y: auto;
+  font-weight: normal;
+  color: #333333; /* default - alterable via nbextension-configurator */
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.text_cell .manager {
+  margin-top: 1em;
+}
+
+.toc ul.toc-item {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#manager-wrapper {
+  z-index: 90;
+  position: fixed !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 10px;
+  border-style: solid;
+  border-width: thin;
+  background-color: #fff; /* default - alterable via nbextension-configurator */
+  height: 90%;
+  width: 18%;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Open Sans", sans-serif;
+}
+
+#manager-wrapper .manager {
+  flex-grow: 1;
+}
+
+#manager-wrapper button:not(.category-btn) {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(204, 204, 204);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#manager-wrapper button:hover {
+  background-color: rgb(230, 230, 230);
+  border-color: rgb(173, 173, 173);
+}
+
+.category-btn {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(204, 204, 204);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#manager-wrapper button:hover {
+  background-color: rgb(230, 230, 230);
+  border-color: rgb(173, 173, 173);
+}
+
+.active-btn {
+  background-color: rgb(230, 230, 230);
+  border-color: rgb(173, 173, 173);
+}
+
+.float-wrapper {
+  border-color: rgba(0, 0, 0, 0.38);
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+.sidebar-wrapper {
+  top: 0;
+  bottom: 0;
+  width: 212px;
+  border-color: #eeeeee; /* default - alterable via nbextension-configurator */
+}
+
+.sidebar-wrapper .ui-resizable-se {
+  display: none;
+}
+
+.sidebar-wrapper .ui-resizable-e {
+  position: absolute;
+  top: calc(50% - 8px);
+}
+
+#manager-wrapper.closed {
+  min-width: 100px;
+  width: auto;
+  transition: width;
+}
+#manager-wrapper:hover {
+  opacity: 1;
+}
+#manager-wrapper .header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.sidebar-wrapper .hide-btn {
+  display: none;
+}
+
+#manager-wrapper .hide-btn:before {
+  content: "\f147";
+}
+
+#manager-wrapper.closed .hide-btn:before {
+  content: "\f196";
+}
+
+#manager-header .fa {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* on scroll style */
+.highlight_on_scroll {
+  border-left: solid 4px blue;
+}
+
+.toc-item li {
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+.toc-item li > span {
+  display: block;
+}
+.toc-item li > span {
+  padding-left: 0em;
+}
+.toc-item li li > span {
+  padding-left: 1em;
+}
+.toc-item li li li > span {
+  padding-left: 2em;
+}
+.toc-item li li li li > span {
+  padding-left: 3em;
+}
+.toc-item li li li li li > span {
+  padding-left: 4em;
+}
+.toc-item li li li li li li > span {
+  padding-left: 5em;
+}
+
+#toc-wrapper .toc-item-num {
+  font-family: Georgia, Times New Roman, Times, serif;
+  color: black; /* default - alterable via nbextension-configurator */
+}
+
+/*
+  These colors are now specified in js, after reading the extension's config stored in system
+  and updated using the nbextension-configurator
+  .toc-item-highlight-select  {background-color: Gold}
+  .toc-item-highlight-execute  {background-color: red}
+  .toc-item-highlight-execute.toc-item-highlight-select   {background-color: Gold} */
+
+#manager-header .fa,
+.manager-item .fa-fw:first-child {
+  cursor: pointer;
+}
+
+#toc-header,
+.modal-header {
+  cursor: move;
+}
+
+.tocSkip {
+  display: none;
+}
+
+/* New classes for manager */
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 1rem;
+  padding-left: 30px;
+}
+
+#input-wrapper-categories {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+#input-wrapper-categories * {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.select-op {
+  padding: 7px 40px 7px 12px;
+  width: 80%;
+  border: 1px solid #e8eaed;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 1px 3px -2px #9098a9;
+  font-family: inherit;
+  font-size: 16px;
+  transition: all 150ms ease;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.select-op:hover {
+  border-color: #0077ff;
+}
+
+.select-op:after {
+  content: "";
+  padding-right: 3%;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #000 transparent transparent transparent;
+}
+
+.select-op-opt {
+  color: #223254;
+}
+
+.select-op-opt:focus {
+  outline: none;
+  border-color: #0077ff;
+  box-shadow: 0 0 0 2px rgba(#0077ff, 0.2);
+}
+
+.select-op-opt:hover {
+  stroke: #0077ff;
+}
+
+.btn-insert-op {
+  background: #f1f1f1;
+  border-color: #111f11;
+  border: 2px solid #000001;
+  border-radius: 15px;
+  font-size: 18px;
+  padding-right: 14px;
+  padding-left: 14px;
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 2.7px 2.7px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-bottom: 1px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+#input-parameters-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#helper-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#helper-inputs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.parameter-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.parameter-wrapper span {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+#helper-buttons-wrapper label {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  white-space: normal;
+}
+
+#option-description-wrapper {
+  white-space: normal;
+  /* margin: 5%; */
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.chosen-multiple {
+  width: 100%;
+}

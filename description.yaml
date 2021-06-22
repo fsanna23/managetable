@@ -1,0 +1,51 @@
+Type: Jupyter Notebook Extension
+Compatibility: 3.x, 4.x, 5.x, 6.x
+Name: Table Manager
+Main: main.js
+Link: README.md
+Description: |
+  Lets the user manage a table with different operations.
+Parameters:
+  - name: managetable.threshold
+    description: Maximum level of nested sections to display on the tables of contents
+    input_type: number
+    min: -1
+    step: 1
+    default: 4
+  - name: managetable.manager_cell
+    description: Add a Table of Contents cell at the top of the notebook
+    input_type: checkbox
+    default: false
+
+  - name: managetable.title_cell
+    description: Default heading used for ToC cell (can also be set per-notebook)
+    default: "Table of Contents"
+
+  - name: managetable.title_sidebar
+    description: Default title used for ToC sidebar/window (can also be set per-notebook)
+    default: "Contents"
+
+  - name: managetable.manager_window_display
+    description: Display toc window/sidebar at startup
+    input_type: checkbox
+    default: false
+  - name: managetable.sideBar
+    description: Display Table of Contents as a sidebar (otherwise as a floating window)
+    input_type: checkbox
+    default: true
+  - name: managetable.widenNotebook
+    description: Widen the display area to fit the browser window (may be useful with sidebar option)
+    input_type: checkbox
+    default: true
+  - name: managetable.moveMenuLeft
+    description: Move notebook's title and menu on the left instead of being centered -- This provides a better look when the toc/sidebar is present
+    input_type: checkbox
+    default: true
+  - name: managetable.colors.wrapper_background
+    input_type: color
+    description: Color of wrapper window background
+    default: "#FFFFFF"
+  - name: managetable.colors.sidebar_border
+    input_type: color
+    description: Color of sidebar border
+    default: "#EEEEEE"

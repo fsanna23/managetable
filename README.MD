@@ -1,3 +1,3 @@
 # Manage Table
 
-Lets the user manage two tables, make cuts, add columns with just a few buttons.
+### Python Jupyter Notebook extension which allows the user to easily manage tables with Pandas.

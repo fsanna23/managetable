@@ -395,6 +395,55 @@
           insert_code_and_markdown_to_nb(parsedCode, markdown);
         },
       },
+      /* ID 13 - Save table */
+      {
+        id: 13,
+        title: "Save table",
+        description:
+          "Save table as a CSV or Excel file. The file will be saved in the same folder as your notebook.",
+        updates: false,
+        create_input: function () {
+          createTableSelector(
+            "manager-select-df",
+            null,
+            "Select the table you want to export"
+          );
+          createTextField(
+            "export-df-name",
+            "Write a name for your exported file",
+            "Write a name for your exported file"
+          );
+          createSelect(
+            "export-df-type",
+            null,
+            "Choose the file type",
+            ["CSV", "Excel"],
+            false
+          );
+        },
+        insert_code: function () {
+          const df = $("#manager-select-df").val();
+          const newName = $("#export-df-name").val();
+          const fileType = $("#export-df-type").val();
+          let fileExt;
+          if (fileType === "CSV") {
+            fileExt = "csv";
+          } else {
+            fileExt = "xlsx";
+          }
+          let exportCode = ".to_";
+          if (fileType === "CSV") {
+            exportCode += "csv";
+          } else {
+            exportCode += "excel";
+          }
+          exportCode += `('${newName}.${fileExt}')`;
+          const markdown = `The table called \`${df}\` has been exported as \`${newName}.${fileExt}\`.`;
+          const code = `${df}${exportCode}`;
+          const parsedCode = parseCode(code);
+          insert_code_and_markdown_to_nb(parsedCode, markdown);
+        },
+      },
     ];
 
     const columnOps = [

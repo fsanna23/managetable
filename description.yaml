@@ -13,13 +13,13 @@ Parameters:
     step: 1
     default: 4
   - name: managetable.manager_cell
-    description: Add a Table of Contents cell at the top of the notebook
+    description: Add a Table Manager cell at the top of the notebook
     input_type: checkbox
     default: false
 
   - name: managetable.title_cell
     description: Default heading used for ToC cell (can also be set per-notebook)
-    default: "Table of Contents"
+    default: "Table Manager"
 
   - name: managetable.title_sidebar
     description: Default title used for ToC sidebar/window (can also be set per-notebook)
@@ -30,7 +30,7 @@ Parameters:
     input_type: checkbox
     default: false
   - name: managetable.sideBar
-    description: Display Table of Contents as a sidebar (otherwise as a floating window)
+    description: Display Table Manager as a sidebar (otherwise as a floating window)
     input_type: checkbox
     default: true
   - name: managetable.widenNotebook
